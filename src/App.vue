@@ -1,17 +1,34 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Nav title="My App" v-bind:links="linkss" />
+   title:{{titles}} <br>
+   product:{{product}} <br>
+   number:{{number}}
+
+    <Footer v-bind:product="product" v-bind:title="titles"  />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Nav from './components/Nav.vue'
+import Footer from './components/Footer.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Nav,Footer
+  },
+  data:function(){
+      return {
+        titles:'Product',
+        product:'Book',
+        number:0,
+      linkss:[{
+        name:'home',url:'/home'
+      },{
+        name:'Contact',url:'/contact'
+      }]
+      }
   }
 }
 </script>
@@ -23,6 +40,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 0px;
 }
 </style>
